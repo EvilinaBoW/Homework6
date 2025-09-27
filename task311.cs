@@ -6,132 +6,238 @@ namespace ConsoleApp2
     {
         static void Main(string[] args)
         {
-            // Задача 1
-            Console.WriteLine("=== Задача 1: Прямоугольный треугольник ===");
-            double[,] triangles1 = { { 3, 3.5, -2.1 }, { 21, 6.55, 0.1 }, { -9, -3.7, -0.1 } };
-            for (int i = 0; i < triangles1.GetLength(0); i++)
+            // task 1.1
+            double a = 3, b = 3.5, c = 2.1;
+            if (Math.Pow(c, 2) == Math.Pow(a, 2) + Math.Pow(b, 2))
             {
-                double a = Math.Abs(triangles1[i, 0]); 
-                double b = Math.Abs(triangles1[i, 1]);
-                double c = Math.Abs(triangles1[i, 2]);
-
-                double[] sides = { a, b, c };
-                Array.Sort(sides);
-                a = sides[0]; b = sides[1]; c = sides[2]; 
-
-                if (Math.Abs((a * a + b * b) - c * c) < 0.0001)
-                    Console.WriteLine($"Треугольник {i + 1} прямоугольный");
-                else
-                    Console.WriteLine($"Треугольник {i + 1} не прямоугольный");
+                Console.WriteLine("Треугольник прямоугольный.");
             }
-            Console.WriteLine();
-
-            // Задача 2
-            Console.WriteLine("=== Задача 2: Определение сезона ===");
-            Console.WriteLine("Введите номер месяца (1-12):");
-            int month = int.Parse(Console.ReadLine());
-            switch (month)
+            else if (Math.Pow(a, 2) == Math.Pow(b, 2) + Math.Pow(c, 2))
             {
-                case 3:
-                case 4:
-                case 5:
-                    Console.WriteLine("Сезон: Весна");
+                Console.WriteLine("Треугольник прямоугольный.");
+            }
+            else if (Math.Pow(b, 2) == Math.Pow(a, 2) + Math.Pow(c, 2))
+            {
+                Console.WriteLine("Треугольник прямоугольный.");
+            }
+            else
+            {
+                Console.WriteLine("Треугольник не прямоугольный.");
+            }
+
+            // task 1.2
+            a = 21; b = 6.55; c = 0.1;
+            if (Math.Pow(c, 2) == Math.Pow(a, 2) + Math.Pow(b, 2))
+            {
+                Console.WriteLine("Треугольник прямоугольный.");
+            }
+            else if (Math.Pow(a, 2) == Math.Pow(b, 2) + Math.Pow(c, 2))
+            {
+                Console.WriteLine("Треугольник прямоугольный.");
+            }
+            else if (Math.Pow(b, 2) == Math.Pow(a, 2) + Math.Pow(c, 2))
+            {
+                Console.WriteLine("Треугольник прямоугольный.");
+            }
+            else
+            {
+                Console.WriteLine("Треугольник не прямоугольный.");
+            }
+
+            // task 1.3
+            a = 9; b = 3.7; c = 0.1;
+            if (Math.Pow(c, 2) == Math.Pow(a, 2) + Math.Pow(b, 2))
+            {
+                Console.WriteLine("Треугольник прямоугольный.");
+            }
+            else if (Math.Pow(a, 2) == Math.Pow(b, 2) + Math.Pow(c, 2))
+            {
+                Console.WriteLine("Треугольник прямоугольный.");
+            }
+            else if (Math.Pow(b, 2) == Math.Pow(a, 2) + Math.Pow(c, 2))
+            {
+                Console.WriteLine("Треугольник прямоугольный.");
+            }
+            else
+            {
+                Console.WriteLine("Треугольник не прямоугольный.");
+            }
+
+            // task 2
+            Console.WriteLine("Введите номер месяца ");
+            string number = Console.ReadLine();
+            string season;
+            switch (number)
+            {
+                case "1":
+                case "12":
+                case "2":
+                    season = "Зима";
                     break;
-                case 6:
-                case 7:
-                case 8:
-                    Console.WriteLine("Сезон: Лето");
+                case "3":
+                case "4":
+                case "5":
+                    season = "Весна";
                     break;
-                case 9:
-                case 10:
-                case 11:
-                    Console.WriteLine("Сезон: Осень");
+                case "6":
+                case "7":
+                case "8":
+                    season = "Лето";
                     break;
-                case 12:
-                case 1:
-                case 2:
-                    Console.WriteLine("Сезон: Зима");
+                case "9":
+                case "10":
+                case "11":
+                    season = "Осень";
                     break;
                 default:
-                    Console.WriteLine("Некорректный номер месяца");
+                    season = "неверный ввод";
                     break;
             }
-            Console.WriteLine();
+            Console.WriteLine(season);
 
-            // Задача 3
-            Console.WriteLine("=== Задача 3: Увеличение чисел или обнуление ===");
-            double[,] sets3 = { { -3, 3.5, 0.1 }, { 58, 27, -87 }, { -8, -35, -42 } };
-            for (int i = 0; i < sets3.GetLength(0); i++)
+            // task 3.1
+            a = -3; b = 3.5; c = 0.1;
+            if (a + b + c > 0)
             {
-                double A = sets3[i, 0], B = sets3[i, 1], C = sets3[i, 2];
-                Console.WriteLine($"Набор {i + 1}: A={A}, B={B}, C={C}");
-                if (A + B + C > 0)
-                {
-                    A *= 2; B *= 2; C *= 2;
-                    Console.WriteLine($"Сумма > 0, новые значения: A={A}, B={B}, C={C}");
-                }
-                else
-                {
-                    A = 0; B = 0; C = 0;
-                    Console.WriteLine($"Сумма <= 0, новые значения: A={A}, B={B}, C={C}");
-                }
+                a *= 2; b *= 2; c *= 2;
+                Console.WriteLine($"Сумма > 0, новые значения: a={a}, b={b}, c={c}");
             }
-            Console.WriteLine();
-
-            // Задача 4
-            Console.WriteLine("=== Задача 4: Ближайшая точка к началу координат ===");
-            double[,] points = { { 2, 2, -4, 0 }, { 8, 9, 12, 1 }, { -3.5, 0.9, 2, 3 } };
-            for (int i = 0; i < points.GetLength(0); i++)
+            else
             {
-                double x0 = points[i, 0], y0 = points[i, 1], x1 = points[i, 2], y1 = points[i, 3];
-                double distanceA = Math.Sqrt(x0 * x0 + y0 * y0);
-                double distanceB = Math.Sqrt(x1 * x1 + y1 * y1);
-
-                Console.WriteLine($"Набор {i + 1}:");
-                Console.WriteLine($"Расстояние от A({x0},{y0}) до O(0,0): {distanceA:F4}");
-                Console.WriteLine($"Расстояние от B({x1},{y1}) до O(0,0): {distanceB:F4}");
-                if (Math.Abs(distanceA - distanceB) < 0.0001)
-                    Console.WriteLine("Точки A и B на одинаковом расстоянии от начала координат");
-                else if (distanceA < distanceB)
-                    Console.WriteLine("Точка A ближе к началу координат");
-                else
-                    Console.WriteLine("Точка B ближе к началу координат");
+                a = 0; b = 0; c = 0;
+                Console.WriteLine($"Сумма <= 0, новые значения: a={a}, b={b}, c={c}");
             }
-            Console.WriteLine();
 
-            // Задача 5
-            Console.WriteLine("=== Задача 5: Равнобедренный треугольник ===");
-            double[,] triangles5 = { { 3, 3.5, 1.1 }, { 3, 6.55, 6.55 }, { 0.9, 0.9, 0.9 } };
-            for (int i = 0; i < triangles5.GetLength(0); i++)
+            // task 3.2
+            a = 58; b = 27; c = -87;
+            if (a + b + c > 0)
             {
-                double a = triangles5[i, 0], b = triangles5[i, 1], c = triangles5[i, 2];
-                if (Math.Abs(a - b) < 0.0001 || Math.Abs(b - c) < 0.0001 || Math.Abs(a - c) < 0.0001)
-                    Console.WriteLine($"Треугольник {i + 1} равнобедренный");
-                else
-                    Console.WriteLine($"Треугольник {i + 1} не равнобедренный");
+                a *= 2; b *= 2; c *= 2;
+                Console.WriteLine($"Сумма > 0, новые значения: a={a}, b={b}, c={c}");
             }
-            Console.WriteLine();
+            else
+            {
+                a = 0; b = 0; c = 0;
+                Console.WriteLine($"Сумма <= 0, новые значения: a={a}, b={b}, c={c}");
+            }
 
-            // Задача 6: 
-            Console.WriteLine("=== Задача 6: Стоимость разговоров ===");
-            double[,] operators = { { 50, 10 }, { 45, 8 }, { 55, 12 } };
+            // task 3.3
+            a = -8; b = -35; c = -42;
+            if (a + b + c > 0)
+            {
+                a *= 2; b *= 2; c *= 2;
+                Console.WriteLine($"Сумма > 0, новые значения: a={a}, b={b}, c={c}");
+            }
+            else
+            {
+                a = 0; b = 0; c = 0;
+                Console.WriteLine($"Сумма <= 0, новые значения: a={a}, b={b}, c={c}");
+            }
+
+            // task 4.1
+            double x0 = 2, y0 = 2, x1 = -4, y1 = 0;
+            double distanceA = Math.Sqrt(x0 * x0 + y0 * y0);
+            double distanceB = Math.Sqrt(x1 * x1 + y1 * y1);
+            if (Math.Abs(distanceA - distanceB) < 0.0001)
+            {
+                Console.WriteLine("Точки A и B находятся на одинаковом расстоянии от начала координат");
+            }
+            else if (distanceA < distanceB)
+            {
+                Console.WriteLine("Точка A ближе к началу координат");
+            }
+            else
+            {
+                Console.WriteLine("Точка B ближе к началу координат");
+            }
+            Console.WriteLine($"Расстояние от A(0,0) до точки A({x0},{y0}): {distanceA:F4}");
+            Console.WriteLine($"Расстояние от A(0,0) до точки B({x1},{y1}): {distanceB:F4}");
+
+            // task 4.2
+            x0 = 8; y0 = 9; x1 = 12; y1 = 1;
+            distanceA = Math.Sqrt(x0 * x0 + y0 * y0);
+            distanceB = Math.Sqrt(x1 * x1 + y1 * y1);
+            if (Math.Abs(distanceA - distanceB) < 0.0001)
+            {
+                Console.WriteLine("Точки A и B находятся на одинаковом расстоянии от начала координат");
+            }
+            else if (distanceA < distanceB)
+            {
+                Console.WriteLine("Точка A ближе к началу координат");
+            }
+            else
+            {
+                Console.WriteLine("Точка B ближе к началу координат");
+            }
+            Console.WriteLine($"Расстояние от A(0,0) до точки A({x0},{y0}): {distanceA:F4}");
+            Console.WriteLine($"Расстояние от A(0,0) до точки B({x1},{y1}): {distanceB:F4}");
+
+            // task 4.3
+            x0 = -3.5; y0 = 0.9; x1 = 2; y1 = 3;
+            distanceA = Math.Sqrt(x0 * x0 + y0 * y0);
+            distanceB = Math.Sqrt(x1 * x1 + y1 * y1);
+            if (Math.Abs(distanceA - distanceB) < 0.0001)
+            {
+                Console.WriteLine("Точки A и B находятся на одинаковом расстоянии от начала координат");
+            }
+            else if (distanceA < distanceB)
+            {
+                Console.WriteLine("Точка A ближе к началу координат");
+            }
+            else
+            {
+                Console.WriteLine("Точка B ближе к началу координат");
+            }
+            Console.WriteLine($"Расстояние от A(0,0) до точки A({x0},{y0}): {distanceA:F4}");
+            Console.WriteLine($"Расстояние от A(0,0) до точки B({x1},{y1}): {distanceB:F4}");
+
+            // task 5.1
+            a = 3; b = 3.5; c = 1.1;
+            if (Math.Abs(a - b) < 0.0001 || Math.Abs(b - c) < 0.0001 || Math.Abs(a - c) < 0.0001)
+                Console.WriteLine("Треугольник равнобедренный");
+            else
+                Console.WriteLine("Треугольник не равнобедренный");
+
+            // task 5.2
+            a = 3; b = 6.55; c = 6.55;
+            if (Math.Abs(a - b) < 0.0001 || Math.Abs(b - c) < 0.0001 || Math.Abs(a - c) < 0.0001)
+                Console.WriteLine("Треугольник равнобедренный");
+            else
+                Console.WriteLine("Треугольник не равнобедренный");
+
+            // task 5.3
+            a = 0.9; b = 0.9; c = 0.9;
+            if (Math.Abs(a - b) < 0.0001 || Math.Abs(b - c) < 0.0001 || Math.Abs(a - c) < 0.0001)
+                Console.WriteLine("Треугольник равнобедренный");
+            else
+                Console.WriteLine("Треугольник не равнобедренный");
+
+            // task 6.1
+            double costPerMinute = 0.50, discount = 0.10;
             Console.WriteLine("Введите время разговоров в будни (минуты):");
             double weekdayTime = double.Parse(Console.ReadLine());
             Console.WriteLine("Введите время разговоров в выходные (минуты):");
             double weekendTime = double.Parse(Console.ReadLine());
-            for (int i = 0; i < operators.GetLength(0); i++)
-            {
-                double costPerMinute = operators[i, 0] / 100;
-                double discount = operators[i, 1] / 100;
-                double weekdayCost = weekdayTime * costPerMinute;
-                double weekendCost = weekendTime * costPerMinute * (1 - discount);
-                double totalCost = weekdayCost + weekendCost;
-                Console.WriteLine($"Оператор {i + 1}: Стоимость = {totalCost:F2} руб.");
-            }
-            Console.WriteLine();
+            double weekdayCost = weekdayTime * costPerMinute;
+            double weekendCost = weekendTime * costPerMinute * (1 - discount);
+            double totalCost = weekdayCost + weekendCost;
+            Console.WriteLine($"Оператор 1: Стоимость = {totalCost:F2} руб.");
 
-            // Задача 7
-            Console.WriteLine("=== Задача 7: Поздравительная открытка ===");
+            // task 6.2
+            costPerMinute = 0.45; discount = 0.08;
+            weekdayCost = weekdayTime * costPerMinute;
+            weekendCost = weekendTime * costPerMinute * (1 - discount);
+            totalCost = weekdayCost + weekendCost;
+            Console.WriteLine($"Оператор 2: Стоимость = {totalCost:F2} руб.");
+
+            // task 6.3
+            costPerMinute = 0.55; discount = 0.12;
+            weekdayCost = weekdayTime * costPerMinute;
+            weekendCost = weekendTime * costPerMinute * (1 - discount);
+            totalCost = weekdayCost + weekendCost;
+            Console.WriteLine($"Оператор 3: Стоимость = {totalCost:F2} руб.");
+
+            // task 7
             string[] themes = { "Новогодние", "С днем рождения", "С днем защитника отечества" };
             Console.WriteLine("Введите номер темы (1-3):");
             int theme = int.Parse(Console.ReadLine());
@@ -142,56 +248,99 @@ namespace ConsoleApp2
                 Console.WriteLine($"Открытка: {themes[theme - 1]}, вариант {variant}");
             else
                 Console.WriteLine("Некорректный номер темы или варианта");
-            Console.WriteLine();
 
-            // Задача 8
-            Console.WriteLine("=== Задача 8: Изменение знаков чисел ===");
-            double[,] sets8 = { { -3, 3.5 }, { 5.8, 2.7 }, { 8, -3.5 } };
-            for (int i = 0; i < sets8.GetLength(0); i++)
+            // task 8.1
+            a = -3; b = 3.5;
+            if ((a > 0 && b < 0) || (a < 0 && b > 0))
             {
-                double a = sets8[i, 0], b = sets8[i, 1];
-                Console.WriteLine($"Набор {i + 1}: a={a}, b={b}");
-                if ((a > 0 && b < 0) || (a < 0 && b > 0))
-                {
-                    a = -a; b = -b;
-                    Console.WriteLine($"Разные знаки, новые значения: a={a}, b={b}");
-                }
-                else
-                {
-                    a = 0; b = 0;
-                    Console.WriteLine($"Одинаковые знаки, новые значения: a={a}, b={b}");
-                }
+                a = -a; b = -b;
+                Console.WriteLine($"Разные знаки, новые значения: a={a}, b={b}");
             }
-            Console.WriteLine();
+            else
+            {
+                a = 0; b = 0;
+                Console.WriteLine($"Одинаковые знаки, новые значения: a={a}, b={b}");
+            }
 
-            // Задача 9: Поиск наименьшего числа
-            Console.WriteLine("=== Задача 9: Наименьшее число ===");
-            double[,] sets9 = { { 45, 13, -23 }, { -31, 65, 12 }, { 52, -1, -33 } };
-            for (int i = 0; i < sets9.GetLength(0); i++)
+            // task 8.2
+            a = 5.8; b = 2.7;
+            if ((a > 0 && b < 0) || (a < 0 && b > 0))
             {
-                double a = sets9[i, 0], b = sets9[i, 1], c = sets9[i, 2];
-                double min = Math.Min(Math.Min(a, b), c);
-                Console.WriteLine($"Набор {i + 1}: a={a}, b={b}, c={c}, Минимальное: {min}");
+                a = -a; b = -b;
+                Console.WriteLine($"Разные знаки, новые значения: a={a}, b={b}");
             }
-            Console.WriteLine();
+            else
+            {
+                a = 0; b = 0;
+                Console.WriteLine($"Одинаковые знаки, новые значения: a={a}, b={b}");
+            }
 
-            // Задача 10
-            Console.WriteLine("=== Задача 10: Число больше среднего по модулю ===");
-            double[,] sets10 = { { 3.2, 7, 0.5 }, { 2.3, 3, 2.5 }, { 23, -34, 89.5 } };
-            for (int i = 0; i < sets10.GetLength(0); i++)
+            // task 8.3
+            a = 8; b = -3.5;
+            if ((a > 0 && b < 0) || (a < 0 && b > 0))
             {
-                double x = sets10[i, 0], y = sets10[i, 1], z = sets10[i, 2];
-                double avg = (Math.Abs(x) + Math.Abs(y) + Math.Abs(z)) / 3;
-                Console.WriteLine($"Набор {i + 1}: x={x}, y={y}, z={z}, Среднее арифметическое модулей: {avg:F4}");
-                if (Math.Abs(x) > avg)
-                    Console.WriteLine($"Число x={x} (модуль {Math.Abs(x):F4}) больше среднего");
-                else if (Math.Abs(y) > avg)
-                    Console.WriteLine($"Число y={y} (модуль {Math.Abs(y):F4}) больше среднего");
-                else if (Math.Abs(z) > avg)
-                    Console.WriteLine($"Число z={z} (модуль {Math.Abs(z):F4}) больше среднего");
-                else
-                    Console.WriteLine("Нет числа, модуль которого больше среднего");
+                a = -a; b = -b;
+                Console.WriteLine($"Разные знаки, новые значения: a={a}, b={b}");
             }
+            else
+            {
+                a = 0; b = 0;
+                Console.WriteLine($"Одинаковые знаки, новые значения: a={a}, b={b}");
+            }
+
+            // task 9.1
+            a = 45; b = 13; c = -23;
+            double min = Math.Min(Math.Min(a, b), c);
+            Console.WriteLine($"Набор 1: a={a}, b={b}, c={c}, Минимальное: {min}");
+
+            // task 9.2
+            a = -31; b = 65; c = 12;
+            min = Math.Min(Math.Min(a, b), c);
+            Console.WriteLine($"Набор 2: a={a}, b={b}, c={c}, Минимальное: {min}");
+
+            // task 9.3
+            a = 52; b = -1; c = -33;
+            min = Math.Min(Math.Min(a, b), c);
+            Console.WriteLine($"Набор 3: a={a}, b={b}, c={c}, Минимальное: {min}");
+
+            // task 10.1
+            a = 3.2; b = 7; c = 0.5;
+            double avg = (Math.Abs(a) + Math.Abs(b) + Math.Abs(c)) / 3;
+            Console.WriteLine($"Набор 1: a={a}, b={b}, c={c}, Среднее арифметическое модулей: {avg:F4}");
+            if (Math.Abs(a) > avg)
+                Console.WriteLine($"Число a={a} (модуль {Math.Abs(a):F4}) больше среднего");
+            else if (Math.Abs(b) > avg)
+                Console.WriteLine($"Число b={b} (модуль {Math.Abs(b):F4}) больше среднего");
+            else if (Math.Abs(c) > avg)
+                Console.WriteLine($"Число c={c} (модуль {Math.Abs(c):F4}) больше среднего");
+            else
+                Console.WriteLine("Нет числа, модуль которого больше среднего");
+
+            // task 10.2
+            a = 2.3; b = 3; c = 2.5;
+            avg = (Math.Abs(a) + Math.Abs(b) + Math.Abs(c)) / 3;
+            Console.WriteLine($"Набор 2: a={a}, b={b}, c={c}, Среднее арифметическое модулей: {avg:F4}");
+            if (Math.Abs(a) > avg)
+                Console.WriteLine($"Число a={a} (модуль {Math.Abs(a):F4}) больше среднего");
+            else if (Math.Abs(b) > avg)
+                Console.WriteLine($"Число b={b} (модуль {Math.Abs(b):F4}) больше среднего");
+            else if (Math.Abs(c) > avg)
+                Console.WriteLine($"Число c={c} (модуль {Math.Abs(c):F4}) больше среднего");
+            else
+                Console.WriteLine("Нет числа, модуль которого больше среднего");
+
+            // task 10.3
+            a = 23; b = -34; c = 89.5;
+            avg = (Math.Abs(a) + Math.Abs(b) + Math.Abs(c)) / 3;
+            Console.WriteLine($"Набор 3: a={a}, b={b}, c={c}, Среднее арифметическое модулей: {avg:F4}");
+            if (Math.Abs(a) > avg)
+                Console.WriteLine($"Число a={a} (модуль {Math.Abs(a):F4}) больше среднего");
+            else if (Math.Abs(b) > avg)
+                Console.WriteLine($"Число b={b} (модуль {Math.Abs(b):F4}) больше среднего");
+            else if (Math.Abs(c) > avg)
+                Console.WriteLine($"Число c={c} (модуль {Math.Abs(c):F4}) больше среднего");
+            else
+                Console.WriteLine("Нет числа, модуль которого больше среднего");
 
             Console.ReadKey();
         }
